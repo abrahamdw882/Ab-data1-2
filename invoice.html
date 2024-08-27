@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    .invoice-box {
+      border: 1px solid #eee;
+      padding: 20px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-box">
+    <h1>Invoice</h1>
+    <p>Date: <script>document.write(new Date().toLocaleDateString());</script></p>
+    <p>Item: <script>document.write(decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]));</script></p>
+    <p>Price: <script>document.write(decodeURIComponent(window.location.search.split('price=')[1]));</script></p>
+    <button onclick="downloadInvoice()">Download Invoice</button>
+  </div>
+  <script>
+    function downloadInvoice() {
+      const invoiceData = {
+        item: decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]),
+        price: decodeURIComponent(window.location.search.split('price=')[1]),
+        date: new Date().toLocaleDateString(),
+      };
+      const invoiceHTML = `
+        <html>
+          <head>
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+              }
+            </style>
+          </head>
+          <body>
+            <div>
+              <h1>Invoice</h1>
+              <p>Date: ${invoiceData.date}</p>
+              <p>Item: ${invoiceData.item}</p>
+              <p>Price: ${invoiceData.price}</p>
+            </div>
+          </body>
+        </html>
+      `;
+      const blob = new Blob([invoiceHTML], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = 'invoice.pdf';
+      downloadLink.click();
+    }
+  </script>
+</body>
+</html>
