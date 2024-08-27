@@ -25,8 +25,18 @@
     <p>Item: <script>document.write(decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]));</script></p>
     <p>Price: <script>document.write(decodeURIComponent(window.location.search.split('price=')[1]));</script></p>
     <button onclick="downloadInvoice()">Download Invoice</button>
-     <button onclick="window.history.back()">Go Back</button>
+    <button onclick="makePurchase()">Purchase via USSD</button>
+</div>
+<script>
+  function makePurchase() {
+    const item = decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]);
+    const price = decodeURIComponent(window.location.search.split('price=')[1]);
+    const ussdCode = `*170*${price.replace(' GHC', '')}*${item.replace('GB', '')}#`;
+    window.location.href = `tel:${ussdCode}`;
+  }
+</script>
 
+    <button onclick="window.history.back()">Go Back</button>
   </div>
   <script>
     function downloadInvoice() {
@@ -60,6 +70,7 @@
       downloadLink.href = url;
       downloadLink.download = 'invoice.pdf';
       downloadLink.click();
+      
     }
   </script>
 </body>
