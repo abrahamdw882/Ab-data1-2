@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Plan Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #plan-selector {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="plan-selector">
+        <h2>Select Your AT Data Plan</h2>
+        <form id="data-plan-form" action="" method="post" onchange="redirectToSelectedPage()">
+            <label for="data-plan">Choose your data plan:</label>
+            <select id="data-plan" name="data-plan">
+				<option value="1" data-link=" "></option>
+                
+                <option value="2" data-link="https://paystack.com/pay/j1gb">1GB - valid for 30 days </option>
+                <option value="3" data-link="https://paystack.com/pay/j2gb">2GB - valid for 30 days</option>
+                <option value="4" data-link="https://paystack.com/pay/j3gb">3GB - valid for 30 days</option>
+				<option value="5" data-link="https://paystack.com/pay/j4gb">4GB - valid for 3 days</option>
+              				<option value="6" data-link="https://paystack.com/pay/j4gb">5GB - valid for 30 days</option>
+              				<option value="7" data-link="https://paystack.com/pay/j4gb">6GB - valid for 30 days</option>
+              				<option value="8" data-link="https://paystack.com/pay/j4gb">8GB - valid for 30 days</option>
+              				<option value="9" data-link="https://paystack.com/pay/j4gb">10GB - valid for 30 days</option>
+              				<option value="10" data-link="https://paystack.com/pay/j4gb">15GB - valid for 30 days</option>
+              				<option value="11" data-link="https://paystack.com/pay/j4gb">20GB - valid for 30 days</option>
+              				<option value="12" data-link="https://paystack.com/pay/j4gb">25GB - valid for 30 days</option>
+            </select>
+			<center>
+				<H3>WARNING</H3>
+			</center>
+			<p style="color: black"><h6>please you have to provide two different phone numbers at the "alternative receivers 1" AND  "alternative receivers 2". Your Whatsapp number is also counted as alternative receiver (if it's MTN) making 4 stated phone numbers in all.<p style="color: black">Failure to provide different numbers as alternative receivers you'll not be refunded if the RECEIVER does not qualify for Just4U offers.</h6>
+        </form>
+<p style="color: black"><h6>Before you proceed go back to click on the red button labeled <a style="background-color: red; color: white">"VEIFY PHONE NUMBER"</a>.<p style="color: black">qualify for Just4U offers.</h6>
+    </div>
+
+    <script>
+        function redirectToSelectedPage() {
+            var selectedPlan = document.getElementById('data-plan');
+            var selectedLink = selectedPlan.options[selectedPlan.selectedIndex].getAttribute('data-link');
+            window.location.href = selectedLink;
+        }
+    </script>
+
+</body>
+</html>
