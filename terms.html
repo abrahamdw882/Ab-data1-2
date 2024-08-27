@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product/Service Details</title>
+    <style>
+        #product-details {
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        #buy-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #eef;
+        }
+        .buy-button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<CENTER>
+    <div id="product-details">
+        <h1>MTN SME</h1>
+		<p>DESCRIPTION</p>
+		<p>This offer is valid for 7 days.
+		<p><b>On-Net Voice (calls to MTN):</b> 218 Minutes
+		<p><b>Off-Net Voice calls to Other Networks:</b> 44 Minutes
+		<p><b>Data:</b> 131 MB
+		<p><b>SMS:</b> 44
+		<p><b>Free On-Net Mondays:</b> Yes
+		<p><b>After purchasing, you will receive 150mb data as bonus which is valid for 1 day (24 hours)!</b></p>
+        <p>Price: GH&cent;10.00</p>
+		<p>fee: GH&cent;1.00
+		<p>Total cost to agent: GH&cent;11.00
+			<br>
+        <button class="buy-button" onclick="buyProduct()">Buy Now</button>
+    </div>
+	</CENTER>
+    <div id="buy-content">
+        <h2>Please wait</h2>
+        <p></p>
+        <!-- Additional content from the Buy link can be displayed here -->
+    </div>
+
+    <script>
+        function buyProduct() {
+            // Hide product details
+            document.getElementById('product-details').style.display = 'none';
+            
+            // Show purchase details
+            document.getElementById('buy-content').style.display = 'block';
+            
+            // Redirect to buy link (example link used here)
+            window.location.href = "https://paystack.com/pay/sme-weekly-pack-10cedis";
+        }
+    </script>
+
+</body>
+</html>
