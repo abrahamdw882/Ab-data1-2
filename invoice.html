@@ -24,14 +24,14 @@
     <p>Date: <script>document.write(new Date().toLocaleDateString());</script></p>
     <p>Item: <script>document.write(decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]));</script></p>
     <p>Price: <script>document.write(decodeURIComponent(window.location.search.split('price=')[1]));</script></p>
-    <button onclick="downloadInvoice()">Download Invoice</button>
-    <button onclick="makePurchase()">Purchase via USSD</button>
-</div>
+  <button onclick="makePurchase()">Purchase</button>
+
 <script>
   function makePurchase() {
-    const item = decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]);
-    const price = decodeURIComponent(window.location.search.split('price=')[1]);
-    const ussdCode = `*170*${price.replace(' GHC', '')}*${item.replace('GB', '')}#`;
+    const phoneNumber = "0533763772"; // Replace with the actual phone number
+    const amount = "6.5"; // Replace with the actual amount
+    const reference = "1gb"; // Replace with the actual reference
+    const ussdCode = `*170*1*1*${phoneNumber}*${phoneNumber}*${amount}*${reference}#`;
     window.location.href = `tel:${ussdCode}`;
   }
 </script>
