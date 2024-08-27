@@ -24,6 +24,7 @@
     <p>Date: <script>document.write(new Date().toLocaleDateString());</script></p>
     <p>Item: <script>document.write(decodeURIComponent(window.location.search.split('item=')[1].split('&')[0]));</script></p>
     <p>Price: <script>document.write(decodeURIComponent(window.location.search.split('price=')[1]));</script></p>
+     <button onclick="downloadInvoice()">Download Invoice</button>
   <button onclick="makePurchase()">Purchase</button>
 
 <script>
