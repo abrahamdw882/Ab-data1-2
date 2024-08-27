@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB DATAGH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        .icon-container, .icon-container i { font-size: 12px }
+        .icon-container, .nav-title, .network { text-align: center }
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: white }
+        .network-container { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; padding: 20px; position: relative }
+        .network-logo { position: absolute; top: 0; right: 0; padding: 10px }
+        .network { padding: 20px; margin: 10px; border-radius: 1px solid #ccc; border-radius: 5px solid ; background-color: #fff; color: white; text-decoration: none; transition: background-color .3s }
+        .network1 { background-color: black }
+        .network2 { background: linear-gradient(to right, #b42727, #122c83); color: #fff }
+        .network3 { background: #eb1c1c; color: #fff }
+        .network4 { background: #0ab80a; color: #fff }
+        .nav-title { font-size: 24px; margin: 10px 0 }
+        @media (max-width: 768px) { .network-container { flex-direction: column } .network { width: 80% } }
+        .responsive-iframe { width: 100%; height: 100%; border: none; text-align: left; }
+        .iframe-container { position: relative; overflow: hidden; padding-top: 56.25%; /* 16:9 aspect ratio (change as needed) */ }
+        .iframe-padding { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Button style */
+        button {
+            background-color: #eb1c1c; /* Red color */
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ /* Button style */
+        button1 {
+            background-color: green; /* green color */
+			text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c90f0f; /* Darker red color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="nav-title">
+        <br>MTN UP2U DATA
+    </header>
+
+    <div class="network-container">
+        <a class="network network1" href="">
+            <b> OPERATOR: MTN GHANA</b><br>
+        </a>
+    </div>
+<div class="network-container">
+        <a class="network network1" href="">
+            <b> PRODUCT: MTN UP2U</b><br>
+        </a>
+    </div>
+	<div class="network-container">
+        <a class="network network1" href="">
+            <b> TEAM: AB TEAM </b><br>
+       </a>
+    </div>
+	<div class="network-container">
+        <a class="network network1" href="">
+            <b> VALIDITY/EXPIRY: </b>30-DAYS<br>
+        </a>
+    </div>
+    <center>
+        <button onclick="openModal()">Is phone number qualified?...</button><br><br> <span><a href="vodafonegh/"><button1 href="vodafonegh/" style="text-decoration: none;">BUY DATA </button1></a></span></center>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>
+					At a certain point in time, this offer is not available for some MTN MSISDNs (phone numbers). Below are some conditions that will not allow a phone number to receive the MTN Just4U offer:<br>
+                    <br>
+                    1. Phone number is NOT MTN's identity.<br>
+                    2. MTN number is not active in recharging airtime.<br>
+                    3. MTN number is not active in recharging flexi data bundles.<br>
+                    4. MTN number owes MTN airtime for longer time.<br>
+                    5. MTN number owes MTN data bundle for longer time.<br>
+                    6. MTN number is a postpaid.<br>
+                    7. MTN number is an EVD account.<br><br><br>
+					You can receive this data within ten (10) minutes or less if the offer is available for you<br>
+					Data may keep longer to be transferred to you if the Just4U system is busy.
+                </p>
+            </div>
+        </div>
+  
+
+    <script>
+        let timeoutId;
+
+        function resetTimer() {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(redirectToHome, 5000); // 5 seconds (5000 milliseconds)
+        }
+
+        function redirectToHome() {
+            window.location.href = "https://ab-data1bundles.vercel.app/"; // don't redirect
+        }
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Close modal if the user clicks outside the modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
