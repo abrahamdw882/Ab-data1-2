@@ -26,6 +26,7 @@
     <p>Price: <script>document.write(decodeURIComponent(window.location.search.split('price=')[1]));</script></p>
      <button onclick="downloadInvoice()">Download Invoice</button>
     <br>
+    <br>
   <button onclick="makePurchase()">Purchase</button>
 
 <script>
@@ -37,6 +38,7 @@
     window.location.href = `tel:${ussdCode}`;
   }
 </script>
+    <br>
     <br>
 
     <button onclick="window.history.back()">Go Back</button>
