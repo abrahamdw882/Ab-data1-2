@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-      background: linear-gradient(90deg, #000000, #ff1744, #ff6f61, #ff8a80, #000000);
-
-
-
+            background: linear-gradient(90deg, #000000, #ff1744, #ff6f61, #ff8a80, #000000);
             text-align: center;
             padding: 20px;
         }
@@ -52,38 +48,67 @@
 
     <div id="plan-selector">
         <h2>Select Your Telecel Data Plan</h2>
-        <form id="data-plan-form" action="" method="post" onchange="redirectToSelectedPage()">
+        <form id="data-plan-form" action="" method="post" onchange="handlePlanSelection()">
             <label for="data-plan">Choose your data plan:</label>
             <select id="data-plan" name="data-plan">
-				<option value="1" data-link=" "></option>
-                
-                <option value="2" data-link="https://paystack.com/pay/u-dr0jlplb">1GB - valid for 30 days </option>
-                <option value="3" data-link="https://paystack.com/pay/u-dr0jlplb">2GB - valid for 30 days</option>
-                <option value="4" data-link="https://paystack.com/pay/u-dr0jlplb">3GB - valid for 30 days</option>
-				<option value="5" data-link="https://paystack.com/pay/u-dr0jlplb">4GB - valid for 3 days</option>
-              				<option value="6" data-link="https://paystack.com/pay/u-dr0jlplb">5GB - valid for 30 days</option>
-              				<option value="7" data-link="https://paystack.com/pay/u-dr0jlplb">6GB - valid for 30 days</option>
-              				<option value="8" data-link="https://paystack.com/pay/u-dr0jlplb">8GB - valid for 30 days</option>
-              				<option value="9" data-link="https://paystack.com/pay/u-dr0jlplb">10GB - valid for 30 days</option>
-              				<option value="10" data-link="https://paystack.com/pay/u-dr0jlplb">15GB - valid for 30 days</option>
-              				<option value="11" data-link="https://paystack.com/pay/u-dr0jlplb">20GB - valid for 30 days</option>
-              				<option value="12" data-link="https://paystack.com/pay/u-dr0jlplb">25GB - valid for 30 days</option>
+                <option value=""></option>
+                <option value="1ghc-1gb">1GB - 6 GHC (valid for 30 days)</option>
+                <option value="2ghc-2gb">2GB - 13 GHC (valid for 30 days)</option>
+                <option value="3ghc-3gb">3GB - 18 GHC (valid for 30 days)</option>
+                <option value="4ghc-4gb">4GB - 25 GHC (valid for 30 days)</option>
+                <option value="5ghc-5gb">5GB - 32 GHC (valid for 30 days)</option>
+                <option value="6ghc-6gb">6GB - 39 GHC (valid for 30 days)</option>
+                <option value="8ghc-8gb">8GB - 49 GHC (valid for 30 days)</option>
+               
+                <!-- Add other options as needed -->
             </select>
-			<center>
-				<H3>WARNING</H3>
-			</center>
-			<p style="color: black"><h6>please you have to provide two different phone numbers at the "alternative receivers 1" AND  "alternative receivers 2". Your Whatsapp number is also counted as alternative receiver (if it's MTN) making 4 stated phone numbers in all.<p style="color: black">Failure to provide different numbers as alternative receivers you'll not be refunded if the RECEIVER does not qualify for Just4U offers.</h6>
         </form>
-<p style="color: black"><h6>Before you proceed go back to click on the red button labeled <a style="background-color: red; color: white">"VEIFY PHONE NUMBER"</a>.<p style="color: black">qualify for Just4U offers.</h6>
+
+        <center><h3>WARNING</h3></center>
+        <p style="color: black;">
+            <h6>Please provide two different phone numbers for "Alternative Receivers 1" and "Alternative Receivers 2". Your WhatsApp number also counts as an alternative receiver (if it's MTN), making four stated phone numbers in all.</h6>
+        </p>
+        <p style="color: black;">
+            <h6>Failure to provide different numbers as alternative receivers means you will not be refunded if the RECEIVER does not qualify for Just4U offers.</h6>
+        </p>
+        <p style="color: black;">
+            <h6>Before you proceed, click on the red button labeled <a style="background-color: red; color: white;">"VERIFY PHONE NUMBER"</a> to ensure your numbers qualify for Just4U offers.</h6>
+        </p>
     </div>
 
     <script>
-        function redirectToSelectedPage() {
-            var selectedPlan = document.getElementById('data-plan');
-            var selectedLink = selectedPlan.options[selectedPlan.selectedIndex].getAttribute('data-link');
-            window.location.href = selectedLink;
+        function handlePlanSelection() {
+          var selectedPlan = document.getElementById('data-plan').value;
+          if (selectedPlan === '1ghc-1gb') {
+            window.location.href = 'invoice.html?item=1GB%20Data&price=6%20GHC';
+          }
+          else if(selectedPlan == '2ghc-2gb') {
+            window.location.href = 'invoice.html?item=2GB%20Data&price=12%20GHC';
+          }
+
+          else if(selectedPlan == '3ghc-3gb') {
+            window.location.href = 'invoice.html?item=3GB%20Data&price=18%20GHC';
+          }
+
+          else if(selectedPlan == '4ghc-4gb') {
+            window.location.href = 'invoice.html?item=4GB%20Data&price=25%20GHC';
+          }
+
+          else if(selectedPlan == '5ghc-5gb') {
+            window.location.href = 'invoice.html?item=5GB%20Data&price=32%20GHC';
+          }
+
+          else if(selectedPlan == '6ghc-6gb') {
+            window.location.href = 'invoice.html?item=6GB%20Data&price=39%20GHC';
+          }
+
+          else if(selectedPlan == '8ghc-8gb') {
+            window.location.href = 'invoice.html?item=8GB%20Data&price=49%20GHC';
+          }
+          // Handle other plans similarly if needed
         }
-    </script>
+      </script>
+      
 
 </body>
 </html>
