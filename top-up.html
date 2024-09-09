@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paystack Top Up</title>
+    <title>Wallet Top Up</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
             height: 100vh;
             margin: 0;
         }
-        #topUpContainer {
+        #walletContainer {
             background: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -22,13 +22,17 @@
             width: 300px;
             text-align: center;
         }
-        #topUpContainer h2 {
+        #walletContainer h2 {
             margin-bottom: 20px;
             color: #333;
         }
-        #topUpContainer p {
+        #walletContainer p {
             margin-bottom: 20px;
             color: #666;
+        }
+        #walletBalance {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         input {
             width: 100%;
@@ -54,7 +58,7 @@
             background-color: #0056b3;
         }
         @media (max-width: 600px) {
-            #topUpContainer {
+            #walletContainer {
                 width: 90%;
                 padding: 15px;
             }
@@ -65,9 +69,10 @@
     </style>
 </head>
 <body>
-    <div id="topUpContainer">
+    <div id="walletContainer">
         <h2>Top Up Your Wallet</h2>
         <p>Quickly and securely top up your wallet using Paystack. Enter your details below to get started.</p>
+        <div id="walletBalance">Balance: GHC 0.00</div>
         <form id="topUpForm">
             <input type="email" id="email" placeholder="Email" required />
             <input type="number" id="amount" placeholder="Amount (GHS)" required />
@@ -78,19 +83,22 @@
     <script src="https://js.paystack.co/v2/inline.js"></script>
     <script>
         const topUpForm = document.getElementById('topUpForm');
+        const walletBalance = document.getElementById('walletBalance');
+
         topUpForm.addEventListener('submit', topUpWithPaystack, false);
 
         function topUpWithPaystack(e) {
             e.preventDefault();
 
             let handler = PaystackPop.setup({
-                key: 'your-public-key-here',
+                key: 'pk_test_10779c145f832a67310f9831d6be320c868e7070',
                 email: document.getElementById('email').value,
                 amount: document.getElementById('amount').value * 100,
                 currency: 'GHS',
                 callback: function(response) {
                     alert('Top-up successful. Transaction reference: ' + response.reference);
                     // Update customer's balance on your server
+                    updateWalletBalance(document.getElementById('amount').value);
                 },
                 onClose: function() {
                     alert('Transaction was not completed, window closed.');
@@ -98,6 +106,12 @@
             });
 
             handler.openIframe();
+        }
+
+        function updateWalletBalance(amount) {
+            let currentBalance = parseFloat(walletBalance.textContent.replace('Balance: GHC ', ''));
+            let newBalance = currentBalance + parseFloat(amount);
+            walletBalance.textContent = 'Balance: GHC ' + newBalance.toFixed(2);
         }
     </script>
 </body>
