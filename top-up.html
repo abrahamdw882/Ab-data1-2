@@ -14,12 +14,21 @@
             height: 100vh;
             margin: 0;
         }
-        #topUpForm {
+        #topUpContainer {
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            text-align: center;
+        }
+        #topUpContainer h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        #topUpContainer p {
+            margin-bottom: 20px;
+            color: #666;
         }
         input {
             width: 100%;
@@ -44,14 +53,27 @@
         button:hover {
             background-color: #0056b3;
         }
+        @media (max-width: 600px) {
+            #topUpContainer {
+                width: 90%;
+                padding: 15px;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-    <form id="topUpForm">
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="number" id="amount" placeholder="Amount (GHS)" required />
-        <button type="submit">Top Up</button>
-    </form>
+    <div id="topUpContainer">
+        <h2>Top Up Your Wallet</h2>
+        <p>Quickly and securely top up your wallet using Paystack. Enter your details below to get started.</p>
+        <form id="topUpForm">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="number" id="amount" placeholder="Amount (GHS)" required />
+            <button type="submit">Top Up</button>
+        </form>
+    </div>
 
     <script src="https://js.paystack.co/v2/inline.js"></script>
     <script>
